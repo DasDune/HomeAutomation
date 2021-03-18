@@ -1,5 +1,1 @@
-{
-  "ssid": "Jarinya",
-  "password": "19771977",
-  "dbURL": "http://us-central1-homeautomation-654d6.cloudfunctions.net/"
-}
+{"subnet": "255.255.255.0", "ssid1": "Jarinya", "ver": "1.1", "wsPort": "55", "update": "system main", "btoken": "b63599b8-d5ff-4108-a3ed-a38cc103763d", "password2": "Benoit666", "dbURL": "http://us-central1-homeautomation-654d6.cloudfunctions.net/", "dns": "8.8.8.8", "mtoken": "5fa421b0-2faa-4e0e-8eb4-234d65fb9b0f", "gw": "192.168.1.1", "filesURL": "https://firebasestorage.googleapis.com/v0/b/homeautomation-654d6.appspot.com/o/", "configFile": "config.json", "tagsFile": "tags.json", "password1": "19771977", "ssid2": "DasNet", "MAC": "84:f3:eb:53:23:37", "ID": "C20", "Description": "Controller C20", "IP": "192.168.1.20"}
