@@ -1,0 +1,22 @@
+{
+  "configFile": "config.json",
+  "btoken": "f319a377-da32-40b3-ae66-aaf294de752a",
+  "SSID2": "Jarinya",
+  "ssid": "Jarinya",
+  "password": "19771977",
+  "update": "config boot main C115",
+  "dns": "8.8.8.8",
+  "Password1": "Benoit666",
+  "Password2": "19771977",
+  "ver": "1.3",
+  "tagsFile": "tags.json",
+  "gw": "192.168.1.1",
+  "subnet": "255.255.255.0",
+  "mtoken": "f171232a-9068-4167-a5b7-8941a57743cb",
+  "wsPort": "55",
+  "dbURL": "http://us-central1-homeautomation-654d6.cloudfunctions.net/",
+  "IP": "192.168.1.99",
+  "ID": "C115",
+  "SSID1": "DasNet",
+  "filesURL": "https://firebasestorage.googleapis.com/v0/b/homeautomation-654d6.appspot.com/o/"
+}

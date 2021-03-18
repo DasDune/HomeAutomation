@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //setInterval(startWater, 10000);
+      //setTimeout(waterOFF(tag), 10000)
+
+      spray = tags => {
+        tags.map(tag => {
+          console.log(tag);
+          //console.log('Controller: ' + tag.substring(0, 3));
+          //console.log('Output: ' + tag.substring(4, 5));
+        });
+      };
+
+      getTags = () => {
+        let tags = [];
+        startTime = 15;
+        stopTime = 15;
+        fetch('../json/tags.json')
+          .then(res => res.json())
+          .then(data => {
+            data.map(tag => {
+              //console.log(tag);
+              if (tag.Name.includes('S')) {
+                //console.log(tag.Name.substring(1, 4) + '-' + tag.PinNo);
+                startTime = startTime + 3;
+                tags = [
+                  ...tags,
+                  tag.Name.substring(1, 4) +
+                    '-' +
+                    tag.PinNo +
+                    '-' +
+                    startTime.toString()
+                ];
+                //console.log(tags);
+              }
+              //log(tags);
+            });
+            spray(tags);
+          });
+      };
+
+      getTags();
+    </script>
+  </body>
+</html>

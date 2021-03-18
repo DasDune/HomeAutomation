@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="httpBtn">Http</button>
+    <br />
+    <button id="wsOpenBtn">WS Open</button>
+    <button id="wsCloseBtn">WS "Close"</button>
+    <br />
+    <textarea id="txt"></textarea>
+    <br />
+    <textarea id="txtSend"></textarea>
+    <br />
+
+    <button id="wsSendBtn">WS Send</button>
+    <script>
+      // ws = new WebSocket('ws://192.168.1.99');
+
+      let ws = undefined;
+
+      getPosts = () => {
+        fetch('http://192.168.1.22')
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            document.getElementById('txt').textContent = data;
+          });
+      };
+
+      getStatus = () => {
+        if (ws != undefined) console.log(ws.readyState);
+      };
+
+      setInterval(getStatus, 1000);
+
+      wsConnect = ip => {
+        if (ws == undefined) ws = new WebSocket('ws://' + ip);
+      };
+
+      openWS = () => {
+        // ws = new WebSocket('ws://192.168.1.6');
+        wsConnect('192.168.1.22');
+        ws.onopen = evt => console.log('Socket opened!');
+        ws.onmessage = evt => (document.getElementById('txt').value = evt.data);
+        //ws.onclose = evt => console.log('Socket closed');
+        ws.onerror = evt => console.error('WebSocket error observed:', event);
+      };
+
+      closeWS = () => {
+        ws.close();
+      };
+
+      sendWS = () => {
+        ws.send(document.getElementById('txtSend').value);
+      };
+
+      document.getElementById('httpBtn').addEventListener('click', getPosts);
+
+      document.getElementById('wsOpenBtn').addEventListener('click', openWS);
+
+      document.getElementById('wsCloseBtn').addEventListener('click', closeWS);
+
+      document.getElementById('wsSendBtn').addEventListener('click', sendWS);
+    </script>
+  </body>
+</html>

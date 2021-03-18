@@ -1,0 +1,46 @@
+"tags":{[
+{
+  "Name": "O22-1",
+  "Type": "Free",
+  "Description": "Controller C22 - free IO",
+  "Node": "C22",
+  "PinName": "D1",
+  "PinNo": 5,
+  "PinType": 1,
+  "IOType": "OUT",
+  "Schedule": "00:00 00:00/00:00 00:00"
+},
+{
+  "Name": "S22-1",
+  "Type": "Valve",
+  "Description": "Controller C22 - sprinklers 1 - Left Side - Middle",
+  "Node": "C22",
+  "PinName": "D0",
+  "PinNo": 16,
+  "PinType": 1,
+  "IOType": "OUT",
+  "Schedule": "16:12 16:15/00:00 00:00"
+},
+{
+  "Name": "S22-2",
+  "Type": "Valve",
+  "Description": "Controller C22 - sprinklers 2 - Left Side - House fence parking",
+  "Node": "C22",
+  "PinName": "D2",
+  "PinNo": 4,
+  "PinType": 1,
+  "IOType": "OUT",
+  "Schedule": "16:15 16:18/00:00 00:00"
+},
+{
+  "Name": "S22-3",
+  "Type": "Valve",
+  "Description": "Controller C22 - sprinklers 3 - Left Side - Middle",
+  "Node": "C22",
+  "PinName": "D5",
+  "PinNo": 14,
+  "PinType": 1,
+  "IOType": "OUT",
+  "Schedule": "16:18 16:21/00:00 00:00"
+}
+]}

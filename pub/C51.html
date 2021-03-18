@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sprinkers/Lights Control</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      * {
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      p {
+        margin: 1px;
+        Padding: 1px;
+
+      }
+
+      a{
+
+        font-size: .75rem;
+
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 100px 100px 100px 100px 100px;
+        background-color: #0c3f68;
+        padding: 10px;
+      }
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Sprinkers Control</h1>
+
+    <div id = 'grid' class="grid-container">
+      <div class="grid-item">
+        <button id="onLine" style="color:black;" onclick="onLine();">
+          Online
+        </button>
+      </div>
+      <div class="grid-item">
+        <button id="Z0O0" style="color:black;" onclick="buttonclick(this);">
+          Z0 (future)
+        </button>
+      </div>
+      <div class="grid-item">
+        <button id="Z0O1" style="color:black;" onclick="buttonclick(this);">
+          Z0 Light
+        </button>
+      </div>
+      <div class="grid-item">
+        <button id="Z0O2" style="color:black;" onclick="buttonclick(this);">
+          Z0 (future)
+        </button>
+      </div>
+      <div class="grid-item">
+        <button id="Z0O3" style="color:black;" onclick="buttonclick(this);">
+          Z0 (future)
+        </button>
+      </div>
+
+    <script type="text/javascript">
+      
+      grid = document.getElementById("grid").addEventListener("OnSingleCellClick", showInfo());
+
+ function showInfo(){
+
+  console.log('click cell!');
+
+
+      }
+
+      function onLine() {
+      var outCmd = [1, 1, 1, 1, 1, 1];
+      var websocket0 = new WebSocket('ws://192.168.1.51:55');
+
+      websocket0.onmessage = function(evt) {
+        console.log(evt);
+
+        var str = evt.data;
+
+        if (str == 'O0/1') Z0O0.style.color = 'red';
+        if (str == 'O0/0') Z0O0.style.color = 'green';
+        if (str == 'O1/1') Z0O1.style.color = 'red';
+        if (str == 'O1/0') Z0O1.style.color = 'green';
+        if (str == 'O2/1') Z0O2.style.color = 'red';
+        if (str == 'O2/0') Z0O2.style.color = 'green';
+        if (str == 'O3/1') Z0O3.style.color = 'red';
+        if (str == 'O3/0') Z0O3.style.color = 'green';
+      };
+    }
+     
+      function buttonclick(e) {
+        var zone = e.id.substring(0, 2);
+        var cmd = e.id.substring(2, 3);
+
+        if (cmd == 'D') debug(zone);
+        else {
+          outCmd[e.id.substring(1, 2)] = Number(!outCmd[e.id.substring(1, 2)]);
+
+          var cmd =
+            e.id.substring(2, 4) + '/' + String(outCmd[e.id.substring(1, 2)]);
+          switch (zone) {
+            case 'Z0':
+              websocket0.send(cmd);
+              break;
+            case 'Z1':
+              websocket1.send(cmd);
+              break;
+            case 'Z2':
+              websocket2.send(cmd);
+              break;
+            case 'Z3':
+              websocket3.send(cmd);
+              break;
+          }
+        }
+        // websock.send(cmd);
+      }
+    </script>
+  </body>
+</html>

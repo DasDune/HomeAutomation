@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sprinkers/Lights Control</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <style>
+    .btnClass {
+      width: 250px;
+      height: 200px;
+    }
+  </style>
+
+  <body>
+    <button id="btn" class="btnClass">
+      <h1>Lights</h1>
+    </button>
+
+    <script>
+      ws13 = new WebSocket('ws://192.168.1.113:55');
+
+      ws = [ws13];
+
+      toggle = true;
+      Outputs = ['O3'];
+
+      btn = document.getElementById('btn');
+      btn.addEventListener('click', () => {
+        Outputs.map((Out, index) => {
+          cmd = toggle ? `${Out}/0` : `${Out}/1`;
+          ws[index].send(cmd);
+          toggle = !toggle;
+        });
+      });
+    </script>
+  </body>
+</html>

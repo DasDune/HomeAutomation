@@ -1,0 +1,4 @@
+esptool.py --port COM9 erase_flash
+esptool.py --chip esp32 --port COM6 erase_flash
+esptool.py --port COM9 --baud 460800 write_flash --flash_size=detect 0 esp8266-20190529-v1.11.bin
+esptool.py --chip esp32 --port COM6 --baud 460800 write_flash --flash_size=detect 0 esp32-idf3-20191220-v1.12.bin

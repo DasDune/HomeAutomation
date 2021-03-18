@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .bk {
+        grid-area: bk;
+      }
+      .hs {
+        grid-area: hs;
+        color: grey;
+      }
+      .fl {
+        grid-area: fl;
+      }
+      .gt {
+        grid-area: gt;
+      }
+      .fr {
+        grid-area: fr;
+      }
+      .dl {
+        grid-area: dl;
+      }
+      .dc {
+        grid-area: dc;
+        color: grey;
+      }
+      .dr {
+        grid-area: dr;
+      }
+      .ct {
+        grid-area: ct;
+      }
+      .rt {
+        grid-area: rt;
+      }
+      .bl {
+        grid-area: bl;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-areas:
+          'fl fl gt gt gt fr fr'
+          'bk bk dl dc dr ct rt'
+          'bk bk hs hs hs hs bl';
+        grid-gap: 10px;
+        background-color: #2196f3;
+        padding: 10px;
+      }
+
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="bk"></div>
+      <div class="hs">House</div>
+      <div id="fl" class="fl">Fence Left</div>
+      <div id="gt" class="gt">Gate</div>
+      <div id="fr" class="fr">Fence Right</div>
+      <div id="dl" class="dl">DriveWay Left</div>
+      <div id="dc" class="dc">DriveWay Center</div>
+      <div id="dr" class="dr">DriveWay Right</div>
+      <div id="ct" class="ct">Center</div>
+      <div id="rt" class="rt">Right</div>
+      <div id="bl" class="bl">Balcony</div>
+    </div>
+
+    <script>
+      fl = document.getElementById('fl');
+      gt = document.getElementById('gt');
+      fr = document.getElementById('fr');
+      dl = document.getElementById('dl');
+      dr = document.getElementById('dr');
+      rt = document.getElementById('rt');
+      ct = document.getElementById('ct');
+      bl = document.getElementById('bl');
+
+      wsfl = new WebSocket('ws://192.168.1.114:55');
+      wsdl = new WebSocket('ws://192.168.1.113:55');
+      wsdr = new WebSocket('ws://192.168.1.104:55');
+      wsfr = new WebSocket('ws://192.168.1.8:55');
+      wsr1 = new WebSocket('ws://192.168.1.102:55');
+      wsr2 = new WebSocket('ws://192.168.1.101:55');
+      wsct = new WebSocket('ws://192.168.1.100:55');
+      wsbl = new WebSocket('ws://192.168.1.51:55');
+
+      ws = [wsfl, wsdl, wsdr, wsfr, wsr1, wsr2, wsct, wsbl];
+
+      togglefl = true;
+      toggledl = true;
+      toggledr = true;
+      togglefr = true;
+      togglert = true;
+      togglect = true;
+      togglebl = true;
+
+      wsfl.onmessage = (e) =>
+        (fl.style.color = e.data === 'O2/0' ? 'green' : 'red');
+      wsdl.onmessage = (e) => {
+        dl.style.color = e.data === 'O0/0' ? 'green' : 'red';
+        gt.style.color = e.data === 'O0/0' ? 'green' : 'red';
+      };
+      wsdr.onmessage = (e) =>
+        (dr.style.color = e.data === 'O0/0' ? 'green' : 'red');
+      wsfr.onmessage = (e) =>
+        (fr.style.color = e.data === 'O3/0' ? 'green' : 'red');
+      wsr1.onmessage = (e) =>
+        (rt.style.color = e.data === 'O1/0' ? 'green' : 'red');
+      wsr2.onmessage = (e) =>
+        (rt.style.color = e.data === 'O1/0' ? 'green' : 'red');
+      wsct.onmessage = (e) =>
+        (ct.style.color = e.data === 'O0/0' ? 'green' : 'red');
+      wsbl.onmessage = (e) =>
+        (bl.style.color = e.data === 'O0/0' ? 'green' : 'red');
+
+      fl.addEventListener('click', () => {
+        togglefl = !togglefl;
+        cmd = togglefl ? `O2/0` : `O2/1`;
+        wsfl.send(cmd);
+      });
+
+      dl.addEventListener('click', () => {
+        toggledl = !toggledl;
+        cmd = toggledl ? `O2/0` : `O2/1`;
+        wsdl.send(cmd);
+      });
+
+      dr.addEventListener('click', () => {
+        toggledr = !toggledr;
+        cmd = toggledr ? `O2/0` : `O2/1`;
+        wsdr.send(cmd);
+      });
+
+      fr.addEventListener('click', () => {
+        togglefr = !togglefr;
+        cmd = togglefr ? `O2/0` : `O2/1`;
+        wsfr.send(cmd);
+      });
+
+      rt.addEventListener('click', () => {
+        togglert = !togglert;
+        cmd = togglert ? `O1/0` : `O1/1`;
+        wsr1.send(cmd);
+        cmd = togglert ? `O1/0` : `O1/1`;
+        wsr2.send(cmd);
+      });
+
+      ct.addEventListener('click', () => {
+        togglect = !togglect;
+        cmd = togglect ? `O2/0` : `O2/1`;
+        wsct.send(cmd);
+      });
+
+      bl.addEventListener('click', () => {
+        togglebl = !togglebl;
+        cmd = togglebl ? `O2/0` : `O2/1`;
+        wsbl.send(cmd);
+      });
+    </script>
+  </body>
+</html>

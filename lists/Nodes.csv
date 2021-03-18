@@ -1,0 +1,75 @@
+Tag,Type,Description,Node,PinName,PinAddress,PinType,IOType,Schedule
+L10,Light,Controller C10 - Lights - Balcony (2),C10,D1,5,1,OUT,18:30 21:00/00:00 00:00
+O10,Free,Controller C10 - free IO,C10,D2,4,1,OUT,00:00 00:00/00:00 00:00
+O10-1,Free,Controller C10 - free IO,C10,D0,16,1,OUT,00:00 00:00/00:00 00:00
+S10-1,Valve,Controller C10 - sprinklers 1 - Right Side Balcony,C10,D0,16,1,OUT,15:00 15:03/00:00 00:00
+S10-2,Valve,Controller C10 - sprinklers 2 - Left Side Balcony,C10,D5,14,1,OUT,15:03 15:06/00:00 00:00
+L11,Light,Controller C11 -Lights - Rice field Side,C11,D2,4,1,OUT,18:30 21:00/00:00 00:00
+S11-1,Valve,Controller C11 - sprinklers 3 - Palm trees - next to house,C11,D3,0,1,OUT,15:06 15:09/00:00 00:00
+S11-2,Valve,Controller C11 - sprinklers 2 - Rice field Side - near house,C11,D4,2,1,OUT,15:09 15:12/00:00 00:00
+S11-3,Valve,Controller C11 - sprinklers 3 - Rice field Side - near house,C11,D1,5,1,OUT,15:12 15:15/00:00 00:00
+L12,Light,Controller C12 -Lights - Rice field Side,C12,D2,4,1,OUT,18:30 21:00/00:00 00:00
+S12-1,Valve,Controller C12 - sprinklers 3 - Rice field Side - corner,C12,D4,2,1,OUT,15:15 15:18/00:00 00:00
+S12-2,Valve,Controller C12 - sprinklers 2 - Rice field Side,C12,D1,5,1,OUT,15:18 15:21/00:00 00:00
+S12-3,Valve,Controller C12 - sprinklers 1 - Rice field Side - middle,C12,D3,0,1,OUT,15:21 15:24/00:00 00:00
+L13,Light,Controller C13 - Lights - Right Side Front,C13,D4,2,1,OUT,18:30 21:00/00:00 00:00
+S13-1,Valve,Controller C13 - sprinklers 1 - Right Side Front,C13,D3,0,1,OUT,15:24 15:27/00:00 00:00
+S13-2,Valve,Controller C13 - sprinklers 2 - Right Side Front,C13,D2,4,1,OUT,15:27 15:30/00:00 00:00
+S13-3,Valve,Controller C13 - sprinklers 3 - Right Side Front,C13,D1,5,1,OUT,15:30 15:33/00:00 00:00
+L14,Light,Lights Right hand side for the driveway ( 6 lights ),C14,D1,5,1,OUT,18:30 21:00/00:00 00:00
+S14-1,Valve,Controller C14 - sprinklers 1 - Right Side Front,C14,D4,2,1,OUT,15:33 15:36/00:00 00:00
+S14-2,Valve,Controller C14 - sprinklers 2 - Right Side Driveway,C14,D2,4,1,OUT,15:36 15:39/00:00 00:00
+S14-3,Valve,Controller C14 - sprinklers 3 - Right Side Driveway,C14,D3,0,1,OUT,15:39 15:42/00:00 00:00
+L15,Light,Lights Left hand side for the fence ( 6 lights ),C15,D3,0,1,OUT,18:30 21:00/00:00 00:00
+S15-1,Valve,Controller C15 - sprinklers 1 -Left Side Driveway,C15,D4,2,1,OUT,15:03 15:06/00:00 00:00
+S15-2,Valve,Controller C15 - sprinklers 2 - Left Side Driveway,C15,D1,5,1,OUT,15:03 15:06/00:00 00:00
+S15-3,Valve,Controller C15 - sprinklers 3 - Left Side Driveway,C15,D2,4,1,OUT,15:03 15:06/00:00 00:00
+L16,Light,Lights Left hand side for the driveway ( 6 lights ),C16,D3,0,1,OUT,13:30 21:00/00:00 00:00
+S16-1,Valve,Controller C16 - sprinklers 1 - Left Side Front,C16,D2,4,1,OUT,15:06 15:09/00:00 00:00
+S16-2,Valve,Controller C16 - sprinklers 2 - Left Side Front,C16,D1,5,1,OUT,15:09 15:12/00:00 00:00
+S16-3,Valve,Controller C16 - sprinklers 3 - Left Side Front,C16,D4,2,1,OUT,15:12 15:15/00:00 00:00
+S17-1,Valve,Controller C17 - sprinklers 1 - Left Side Front,C17,D2,4,1,OUT,15:15 15:18/00:00 00:00
+S17-2,Valve,Controller C17 - sprinklers 2 - Left Side Front,C17,D4,2,1,OUT,15:18 15:21/00:00 00:00
+S17-3,Valve,Controller C17 - sprinklers 3 - Left Side Front,C17,D3,0,1,OUT,15:21 15:24/00:00 00:00
+S17-4,Valve,Controller C17 - sprinklers 4 - Left Side Road,C17,D1,5,1,OUT,15:24 15:27/00:00 00:00
+S18-1,Valve,Controller C18 - sprinklers 1 - Left Side Road,C18,D4,2,1,OUT,15:27 15:30/00:00 00:00
+S18-2,Valve,Controller C18 - sprinklers 2 - Left Side Road,C18,D2,4,1,OUT,15:30 15:33/00:00 00:00
+S18-3,Valve,Controller C18 - sprinklers 3 - Left Side Road,C18,D1,5,1,OUT,15:33 15:36/00:00 00:00
+S18-4,Valve,Controller C18 - sprinklers 4 - Left Side Road,C18,D3,0,1,OUT,15:36 15:39/00:00 00:00
+O19-3,Free,Controller C19 - free IO,C19,D1,5,1,OUT,00:00 00:00/00:00 00:00
+S19-1,Valve,Controller C19 - sprinklers 1 - Left Side Road,C19,D5,14,1,OUT,15:39 15:42/00:00 00:00
+S19-2,Valve,Controller C19 - sprinklers 2 - Left Side Road,C19,D6,12,1,OUT,15:42 15:45/00:00 00:00
+S19-3,Valve,Controller C19 - sprinklers 3 - Left Side Road,C19,D2,4,1,OUT,15:45 15:48/00:00 00:00
+S19-4,Valve,Controller C19 - sprinklers 4 - Left Side Road,C19,D3,0,1,OUT,15:48 15:51/00:00 00:00
+S19-5,Valve,Controller C19 - sprinklers 5 - Left Side Road,C19,D4,2,1,OUT,15:51 15:54/00:00 00:00
+S20-1,Valve,Controller C20 - sprinklers 1 - Left Side Back,C20,D1,5,1,OUT,15:54 15:57/00:00 00:00
+S20-2,Valve,Controller C20 - sprinklers 2 - Left Side Back,C20,D2,4,1,OUT,15:57 16:00/00:00 00:00
+S20-3,Valve,Controller C20 - sprinklers 3 - Left Side Back,C20,D5,14,1,OUT,16:00 16:03/00:00 00:00
+S21-1,Valve,Controller C21 - sprinklers 1 - Left Side - Back,C21,D1,5,1,OUT,15:00 15:03/00:00 00:00
+S21-2,Valve,Controller C21 - sprinklers 2 - Left Side - Back,C21,D5,14,1,OUT,16:03 16:06/00:00 00:00
+S21-3,Valve,Controller C21 - sprinklers 3 - Left Side - Back,C21,D2,4,1,OUT,16:06 16:09/00:00 00:00
+S21-4,Valve,Controller C21 - sprinklers 4 - Left Side - Back,C21,D5,14,1,OUT,16:09 16:12/00:00 00:00
+O22-1,Free,Controller C22 - free IO,C22,D1,5,1,OUT,00:00 00:00/00:00 00:00
+S22-1,Valve,Controller C22 - sprinklers 1 - Left Side - Middle,C22,D0,16,1,OUT,16:12 16:15/00:00 00:00
+S22-2,Valve,Controller C22 - sprinklers 2 - Left Side - House fence parking,C22,D2,4,1,OUT,16:15 16:18/00:00 00:00
+S22-3,Valve,Controller C22 - sprinklers 3 - Left Side - Middle,C22,D5,14,1,OUT,16:18 16:21/00:00 00:00
+O23-1,Free,Controller C23 - free IO,C23,D0,16,1,OUT,00:00 00:00/00:00 00:00
+S23-1,Valve,Controller C23 - sprinklers 1 - Left Side - House fence parking,C23,D2,4,1,OUT,15:00 15:03/00:00 00:00
+S23-2,Valve,Controller C23 - sprinklers 2 - Left Side - Middle,C23,D5,14,1,OUT,15:03 15:06/00:00 00:00
+S23-3,Valve,Controller C23 - sprinklers 3 - Left Side - House fence driveway,C23,D1,5,1,OUT,15:03 15:06/00:00 00:00
+O24-1,Free,Controller C24 - free IO,C24,D5,14,1,OUT,00:00 00:00/00:00 00:00
+S24-1,Valve,Controller C24 - sprinklers 1 - Right Side Driveway,C24,D1,5,1,OUT,15:42 15:45/00:00 00:00
+S24-2,Valve,Controller C24 - sprinklers 2 - Right Side Driveway,C24,D2,4,1,OUT,15:45 15:48/00:00 00:00
+S24-3,Valve,Controller C24 - sprinklers 3 - Right Side Driveway,C24,D0,16,1,OUT,15:48 15:51/00:00 00:00
+S24-4,Valve,Controller C24 - sprinklers 4 - Right Side Driveway,C24,D5,14,1,OUT,15:51 15:54/00:00 00:00
+S25-1,Valve,Controller C25 - sprinklers 1 - Front House - Left,C25,D1,5,1,OUT,15:54 15:57/00:00 00:00
+S25-2,Valve,Controller C25 - sprinklers 1 - Front House - Right,C25,D2,4,1,OUT,15:57 16:00/00:00 00:00
+S25-3,Valve,Controller C25 - sprinklers 1 - Front House - Center,C25,D0,16,1,OUT,16:00 16:03/00:00 00:00
+L26,Light,Controller C26 - Lights - Right Side Center,C26,D4,2,1,OUT,18:30 21:00/00:00 00:00
+S26-1,Valve,Controller C26 - Sprinklers 1 - Center Gras,C26,D3,0,1,OUT,15:42 15:45/00:00 00:00
+S26-2,Valve,Controller C26 - sprinklers 2 - Front-Center Gras,C26,D1,5,1,OUT,15:45 15:48/00:00 00:00
+S26-3,Valve,Controller C26 - sprinklers 3 - Right-Center Gras,C26,D2,4,1,OUT,15:48 15:51/00:00 00:00
+L99,Light,Controller C99 - Lights - Right Side Center,C99,D4,2,1,OUT,18:30 21:00/00:00 00:00
+S99-1,Valve,Controller C99 - Sprinklers 1 - Center Gras,C99,D3,0,1,OUT,15:54 15:57/00:00 00:00
+S99-2,Valve,Controller C99 - sprinklers 2 - Front-Center Gras,C99,D1,5,1,OUT,15:57 16:00/00:00 00:00
+S99-3,Valve,Controller C99 - sprinklers 3 - Right-Center Gras,C99,D2,4,1,OUT,16:00 16:03/00:00 00:00

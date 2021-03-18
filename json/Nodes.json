@@ -1,0 +1,110 @@
+[
+ {
+   "MAC": "84:f3:eb:53:1a:d2",
+   "ID": "C10",
+   "Description": "Controller C10",
+   "IP": "192.168.1.10"
+ },
+ {
+   "MAC": "84:f3:eb:53:4c:3b",
+   "ID": "C11",
+   "Description": "Controller C11",
+   "IP": "192.168.1.11"
+ },
+ {
+   "MAC": "84:f3:eb:53:1b:67",
+   "ID": "C12",
+   "Description": "Controller C12",
+   "IP": "192.168.1.12"
+ },
+ {
+   "MAC": "84:f3:eb:53:1b:f7",
+   "ID": "C13",
+   "Description": "Controller C13",
+   "IP": "192.168.1.13"
+ },
+ {
+   "MAC": "84:f3:eb:53:29:02",
+   "ID": "C14",
+   "Description": "Controller C14",
+   "IP": "192.168.1.14"
+ },
+ {
+   "MAC": "84:f3:eb:53:2b:90",
+   "ID": "C15",
+   "Description": "Controller C15",
+   "IP": "192.168.1.15"
+ },
+ {
+   "MAC": "84:f3:eb:53:58:eb",
+   "ID": "C16",
+   "Description": "Controller C16",
+   "IP": "192.168.1.16"
+ },
+ {
+   "MAC": "84:f3:eb:53:23:d4",
+   "ID": "C17",
+   "Description": "Controller C17",
+   "IP": "192.168.1.17"
+ },
+ {
+   "MAC": "84:f3:eb:53:58:e3",
+   "ID": "C18",
+   "Description": "Controller C18",
+   "IP": "192.168.1.18"
+ },
+ {
+   "MAC": "84:f3:eb:53:1b:dc",
+   "ID": "C19",
+   "Description": "Controller C19",
+   "IP": "192.168.1.19"
+ },
+ {
+   "MAC": "84:f3:eb:53:23:37",
+   "ID": "C20",
+   "Description": "Controller C20",
+   "IP": "192.168.1.20"
+ },
+ {
+   "MAC": "bc:dd:c2:b5:a7:a0",
+   "ID": "C21",
+   "Description": "Controller C21",
+   "IP": "192.168.1.21"
+ },
+ {
+   "MAC": "dc:4f:22:7e:2f:1a",
+   "ID": "C22",
+   "Description": "Controller C22 (not installed yet)",
+   "IP": "192.168.1.22"
+ },
+ {
+   "MAC": "bc:dd:c2:b5:e1:44",
+   "ID": "C23",
+   "Description": "Controller C23",
+   "IP": "192.168.1.23"
+ },
+ {
+   "MAC": "5c:cf:7f:8a:8e:02",
+   "ID": "C24",
+   "Description": "Controller C24",
+   "IP": "192.168.1.24"
+ },
+ {
+   "MAC": "ec:fa:bc:63:12:c9",
+   "ID": "C25",
+   "Description": "Controller C25",
+   "IP": "192.168.1.25"
+ },
+ {
+   "MAC": "84:f3:eb:53:59:39",
+   "ID": "C26",
+   "Description": "Controller C26",
+   "IP": "192.168.1.26"
+ },
+ {
+   "MAC": "dc:4f:22:7e:38:dd",
+   "ID": "C99",
+   "Description": "Controller C99 - Test controller",
+   "IP": "192.168.1.99"
+ }
+]

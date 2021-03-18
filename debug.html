@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+    <!-- <script defer src="debug.js"></script> -->
+
+    <title>Debug</title>
+
+</head>
+
+<body id="body">
+
+    <label for="cars">Controller</label>
+    <select id="ctrl">
+        <option value="Cxx">Cxx</option>
+        <option value="50">C50</option>
+        <option value="51">C51</option>
+        <option value="100">C100</option>
+        <option value="101">C101</option>
+        <option value="102">C102</option>
+        <option value="103">C103</option>
+        <option value="104">C104</option>
+        <option value="105">C105</option>
+        <option value="106">C106</option>
+        <option value="111">C111</option>
+        <option value="112">C112</option>
+        <option value="113">C113</option>
+        <option value="114">C114</option>
+        <option value="115">C115</option>
+        <option value="116">C116</option>
+        <option value="117">C117</option>
+        <option value="118">C118</option>
+    </select>
+    <button id="out-0-0">ON1</button>
+    <button id="out-1-0">ON2</button>
+    <button id="out-2-0">ON3</button>
+    <button id="out-3-0">ON4</button>
+    <button id="out-0-1">OFF1</button>
+    <button id="out-1-1">OFF2</button>
+    <button id="out-2-1">OFF3</button>
+    <button id="out-3-1">OFF4</button>
+    <hr>
+    <button id="files">Files</button>
+    <button id="reset">Reset!</button>
+    <hr>
+    <label>Commands</label>
+    <input id="cmd" class="cmd" value="commands...">
+    <button id="clr">Clear</button>
+    <button id="brk">Break</button>
+    <hr>
+    <textarea id="term" class="term">Select a Controller to connect to...</textarea>
+
+    <style>
+        .term {
+
+            color: cornsilk;
+            background: rgb(7, 5, 116);
+            box-shadow: 2px 2px blue;
+        }
+
+        .cmd {
+
+            display: inline;
+
+
+        }
+    </style>
+
+    <script>
+        var term;
+        var ws;
+        var connected = false;
+        var binary_state = 0;
+        var put_file_name = null;
+        var put_file_data = null;
+        var get_file_name = null;
+        // id = 111;
+        // var url = `ws://192.168.1.${id}:8266/`
+        var get_file_data = null;
+
+        cmdEle = document.getElementById(`cmd`);
+        brkEle = document.getElementById(`brk`);
+        clrEle = document.getElementById(`clr`);
+        ctrlEle = document.getElementById(`ctrl`);
+        filesEle = document.getElementById(`files`);
+        resetEle = document.getElementById(`reset`);
+
+        out01 = document.getElementById(`out-0-1`);
+        out11 = document.getElementById(`out-1-1`);
+        out21 = document.getElementById(`out-2-1`);
+        out31 = document.getElementById(`out-3-1`);
+        out00 = document.getElementById(`out-0-0`);
+        out10 = document.getElementById(`out-1-0`);
+        out20 = document.getElementById(`out-2-0`);
+        out30 = document.getElementById(`out-3-0`);
+
+        term = document.getElementById(`term`);
+        term.className = `term`;
+        term.rows = "10";
+        term.cols = "50";
+
+        key = (e) => {
+            if (e.ctrlKey) alert(`The ctrl key is pressed`);
+            if (e.key == "Enter") ws.send(`${cmd.value}\r`);
+        }
+
+        brk = () => {
+            ws.send(`\x03`);
+        }
+
+        clr = () => {
+            term.value = '';
+        }
+
+        ctrl = () => {
+            console.log(ctrlEle.value);
+            url = `ws://192.168.1.${ctrlEle.value}:8266/`
+            connect(url);
+        }
+
+        files = () => {
+            ws.send(`os.listdir()\r`);
+        }
+
+        reset = () => {
+            ws.send(`import machine\r`);
+            ws.send(`machine.reset()\r`);
+        }
+
+        out = (e) => {
+
+            addr = e.target.id.split("-")[1];
+            cmd = e.target.id.split("-")[2];
+            ws.send(`O${addr}.value(${cmd})\r`);
+
+        }
+
+
+        cmdEle.addEventListener("keydown", key);
+        brkEle.addEventListener("click", brk);
+        clrEle.addEventListener("click", clr);
+        ctrlEle.addEventListener("change", ctrl);
+        filesEle.addEventListener("click", files);
+        resetEle.addEventListener("click", reset);
+
+        out01.addEventListener("click", out);
+        out11.addEventListener("click", out);
+        out21.addEventListener("click", out);
+        out31.addEventListener("click", out);
+        out00.addEventListener("click", out);
+        out10.addEventListener("click", out);
+        out20.addEventListener("click", out);
+        out30.addEventListener("click", out);
+
+        newLine = (lastLine) => {
+
+            console.log(`lastLine : ${lastLine}`);
+            lastLine = ``;
+            buff = ``;
+
+        }
+
+
+        connect = (url) => {
+            if (ws) ws.close();
+            ws = new WebSocket(url);
+            ws.binaryType = 'arraybuffer';
+
+            ws.onopen = () => {
+                term.value = `Welcome to Controller C${ctrlEle.value}!`;
+                buff = ``;
+                lastLine = ``;
+                ws.onmessage = (e) => {
+                    if (e.data.match(/Password/)) ws.send(`Benoit\r`);
+                    // else term.write(e.data);
+                    else term.value += e.data;
+                    // console.log(e.data);
+                    buff += e.data;
+                    if (e.data.match(/\r/)) {
+                        newLine(buff);
+                    }
+                }
+            };
+        };
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+{
+  "C101": {
+    "O0": {
+      "description ": "Sprinkers Zone-1.1",
+      "index": 0,
+      "Start": ["8:0", "11:0", "14:0", "17:0"],
+      "Stop": ["8:3", "11:3", "14:3", "17:3"]
+    },
+    "O1": {
+      "description ": "Sprinkers Zone-1.2",
+      "index": 1,
+      "Start": ["8:5", "11:5", "14:5", "17:5"],
+      "Stop": ["8:8", "11:8", "14:8", "17:8"]
+    },
+    "O2": {
+      "description ": "Lights Zone-1",
+      "index": 2,
+      "Start": ["19:0"],
+      "Stop": ["21:0"]
+    },
+    "O3": {
+      "description ": "Sprinkers Zone-1.3",
+      "index": 3,
+      "Start": ["8:10", "11:10", "14:10", "17:10"],
+      "Stop": ["8:13", "11:13", "14:13", "17:13"]
+    }
+  },
+
+  "C102": {
+    "O0": {
+      "description ": "Sprinkers Zone-2.1",
+      "index": 0,
+      "Start": ["8:15", "11:15", "14:15", "17:15"],
+      "Stop": ["8:18", "11:18", "14:18", "17:18"]
+    },
+    "O1": {
+      "description ": "Sprinkers Zone-2.2",
+      "index": 1,
+      "Start": ["8:20", "11:20", "14:20", "17:20"],
+      "Stop": ["8:23", "11:23", "14:23", "17:23"]
+    },
+    "O2": {
+      "description ": "Lights Zone-2",
+      "index": 2,
+      "Start": ["19:0"],
+      "Stop": ["21:0"]
+    },
+    "O3": {
+      "description ": "Sprinkers Zone-2.3",
+      "index": 3,
+      "Start": ["8:25", "11:25", "14:25", "17:25"],
+      "Stop": ["8:28", "11:28", "14:28", "17:28"]
+    }
+  },
+
+  "C103": {
+    "O0": {
+      "description ": "Sprinkers Zone-3.1",
+      "index": 0,
+      "Start": ["8:30", "11:30", "14:30", "17:30"],
+      "Stop": ["8:33", "11:33", "14:33", "17:33"]
+    },
+    "O1": {
+      "description ": "Sprinkers Zone-3.2",
+      "index": 1,
+      "Start": ["8:35", "11:35", "14:35", "17:35"],
+      "Stop": ["8:38", "11:38", "14:38", "17:38"]
+    },
+    "O2": {
+      "description ": "Lights Zone-3",
+      "index": 2,
+      "Start": ["19:0"],
+      "Stop": ["21:0"]
+    },
+    "O3": {
+      "description ": "Sprinkers Zone-3.3",
+      "index": 3,
+      "Start": ["8:40", "11:40", "14:40", "17:40"],
+      "Stop": ["8:43", "11:43", "14:43", "17:43"]
+    }
+  }
+}

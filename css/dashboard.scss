@@ -1,0 +1,194 @@
+@mixin tag {
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-column-gap: 2px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+@mixin linkBox {
+  position: relative;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+}
+
+@mixin textBox {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  padding: 5px;
+}
+
+@mixin topic {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-gap: 1px;
+}
+
+.title {
+  grid-column: 1 / 100;
+  padding: 5px;
+  font-size: 3rem;
+  color: peachpuff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px; /* 5px rounded corners */
+  background: linear-gradient(to left, #33ccff 0%, #003366 75%);
+  border-style: solid;
+  border-width: 1px;
+  border-color: peachpuff;
+}
+
+.subTitle {
+  grid-column: 2 / 100;
+  padding: 5px;
+  font-size: 2rem;
+  color: coral;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px; /* 5px rounded corners */
+  background: linear-gradient(to left, #ccffff 0%, #003300 75%);
+  border-style: solid;
+  border-width: 1px;
+  border-color: peachpuff;
+  padding: 5pxcard;
+}
+
+.fileCard {
+  @include card;
+
+  grid-column: 3 / 100;
+  height: 25vh;
+  background: linear-gradient(to left, #cdd1d6 0%, #04394b 75%);
+  border-color: peachpuff;
+}
+
+.dirCard {
+  @include card;
+
+  grid-column: 3 / 100;
+  height: 10vh;
+  background: linear-gradient(to left, #cdd1d6 0%, #044b42 75%);
+  border-color: rgb(2, 51, 18);
+}
+
+.dirLinkBox {
+  @include linkBox;
+
+  grid-column: 1 / 10;
+  height: 8vh;
+  border-color: rgb(25, 104, 36);
+}
+
+.fileLinkBox {
+  @include linkBox;
+
+  grid-column: 1 / 40;
+  height: 23vh;
+  border-color: peachpuff;
+}
+
+.dirTextBox {
+  @include textBox();
+
+  height: 8vh;
+  grid-column: 12 / 101;
+}
+
+.fileTextBox {
+  @include textBox();
+
+  height: 23vh;
+  grid-column: 42 / 101;
+}
+
+.file {
+  border-radius: 5px;
+  padding: 5px;
+  width: 98%;
+  height: 95%;
+}
+
+.link {
+  z-index: 10;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  border-color: rgb(17, 159, 216);
+}
+
+.link.hover {
+  color: yellow;
+}
+
+.tagItem{
+  @include topic;
+
+  grid-column: 1 / 50;
+  grid-row: 1/2;
+  font-size: 2rem;
+  color: gold;
+  background: #04394b;
+}
+
+.dirTopic {
+  @include topic;
+
+  grid-column: 1 / 50;
+  grid-row: 1/5;
+  font-size: 1.5rem;
+  color: whitesmoke;
+  background: linear-gradient(to left, #cdd1d6 0%, #044b42 75%);
+}
+
+.desc {
+  overflow: hidden;
+  border-radius: 5px;
+  grid-column: 1 / 80;
+  grid-row: 2/5;
+  font-size: 1.5rem;
+  color: whitesmoke;
+  background: #04394b;
+  padding: 5px;
+}
+
+.iconEdit {
+  color: blue;
+  grid-row: 1/4;
+  grid-column: 100 / 101;
+  align-items: center;
+}
+
+.iconUpdate {
+  visibility: hidden;
+  color: blue;
+  grid-row: 2/2;
+  grid-column: 100 / 101;
+  // grid-row: 5/5;
+}
+
+.iconAdd {
+  visibility: hidden;
+  color: blue;
+  grid-row: 3/3;
+  grid-column: 100 / 101;
+}
+
+.iconDelete {
+  visibility: hidden;
+  color: blue;
+  grid-row: 4/4;
+  grid-column: 100 / 101;
+}
+
+video {
+  width: 10vw;
+  height: 10vh;
+}

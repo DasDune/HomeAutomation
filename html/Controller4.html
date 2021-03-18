@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>W&C Control</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      * {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>W&D Dashboard ver 2.0</h1>
+
+    <button onclick="audioPlay()">Play</button>
+
+    <button id="I0">In0</button> <button id="I1">In1</button> <br />
+    <button id="I2">In2</button> <button id="I3">In3</button> <br />
+    <br />
+    <button id="DetectCount">In0-Detections</button><br /><br />
+    <button id="O0" style="color:black;" onclick="buttonclick(this);">
+      Out 0
+    </button>
+    <button id="O1" style="color:black;" onclick="buttonclick(this);">
+      Out 1
+    </button>
+    <h1></h1>
+    <button id="O2" style="color:black;" onclick="buttonclick(this);">
+      Out 2
+    </button>
+    <button id="O3" style="color:black;" onclick="buttonclick(this);">
+      Out 3</button
+    ><br /><br />
+    <button id="Reset" style="color:black;" onclick="buttonclick(this);">
+      Reset
+    </button>
+    <br />
+    <br />
+
+    <select id="SelectSprinkler">
+      <option value="S0">Sprinkler-0</option>
+      <option value="S1">Sprinkler-1</option>
+      <option value="S2">Sprinkler-2</option>
+    </select>
+
+    <select id="SelectCmd">
+      <option value="0">Stop</option>
+      <option value="1">Start</option>
+    </select>
+
+    <select id="SelectHour">
+      <option value="06">10</option>
+      <option value="07">11</option>
+      <option value="08">12</option>
+      <option value="09">13</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+    </select>
+    <select id="SelectMin">
+      <option value="00">00</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+      <option value="50">50</option>
+    </select>
+    <button id="Ok" style="color:black;" onclick="buttonclick(this);">
+      OK
+    </button>
+
+    <script type="text/javascript">
+      var outCmd = [1, 1, 1, 1];
+      var websock = new WebSocket('ws://192.168.1.104:8080');
+      var I0 = document.getElementById('I0');
+      var I1 = document.getElementById('I1');
+      var I2 = document.getElementById('I2');
+      var I3 = document.getElementById('I3');
+
+      function audioPlay() {
+        audio = new Audio();
+        audio.src = 'alarm.mp3';
+        audio.loop = false;
+        audio.play();
+      }
+
+      websock.onopen = function() {
+        console.log('websock open');
+      };
+
+      websock.onclose = function(evt) {
+        console.log('websock close');
+      };
+
+      websock.onerror = function(evt) {
+        console.log(evt);
+      };
+
+      websock.onmessage = function(evt) {
+        console.log(evt);
+
+        var str = evt.data;
+
+        if (str == 'Pin(14)0') I0.style.color = 'red';
+        if (str == 'Pin(14)1') I0.style.color = 'green';
+        if (str == 'Pin(12)0') I1.style.color = 'red';
+        if (str == 'Pin(12)1') I1.style.color = 'green';
+        if (str == 'Pin(13)0') I2.style.color = 'red';
+        if (str == 'Pin(13)1') I2.style.color = 'green';
+        if (str == 'Pin(15)0') I3.style.color = 'red';
+        if (str == 'Pin(15)1') I3.style.color = 'green';
+
+        if (str == 'O0/1') O0.style.color = 'red';
+        if (str == 'O0/0') O0.style.color = 'green';
+        if (str == 'O1/1') O1.style.color = 'red';
+        if (str == 'O1/0') O1.style.color = 'green';
+        if (str == 'O2/1') O2.style.color = 'red';
+        if (str == 'O2/0') O2.style.color = 'green';
+        if (str == 'O3/1') O3.style.color = 'red';
+        if (str == 'O3/0') O3.style.color = 'green';
+
+        if (str == 'Pin(14)1') {
+          audioPlay();
+        }
+      };
+
+      function buttonclick(e) {
+        outCmd[e.id.substring(1, 2)] = Number(!outCmd[e.id.substring(1, 2)]);
+        var cmd =
+          e.id.substring(0, 2) + '/' + String(outCmd[e.id.substring(1, 2)]);
+        if (e.id == 'Reset') cmd = 'Reset';
+        websock.send(cmd);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+MAC,ID,Description,IP
+84:f3:eb:53:1a:d2,C10,Controller C10,192.168.1.10
+84:f3:eb:53:4c:3b,C11,Controller C11,192.168.1.11
+84:f3:eb:53:1b:67,C12,Controller C12,192.168.1.12
+84:f3:eb:53:1b:f7,C13,Controller C13,192.168.1.13
+84:f3:eb:53:29:02,C14,Controller C14,192.168.1.14
+84:f3:eb:53:2b:90,C15,Controller C15,192.168.1.15
+84:f3:eb:53:58:eb,C16,Controller C16,192.168.1.16
+84:f3:eb:53:23:d4,C17,Controller C17,192.168.1.17
+84:f3:eb:53:58:e3,C18,Controller C18,192.168.1.18
+84:f3:eb:53:1b:dc,C19,Controller C19,192.168.1.19
+84:f3:eb:53:23:37,C20,Controller C20,192.168.1.20
+bc:dd:c2:b5:a7:a0,C21,Controller C21,192.168.1.21
+dc:4f:22:7e:2f:1a,C22,Controller C22 (not installed yet),192.168.1.22
+bc:dd:c2:b5:e1:44,C23,Controller C23,192.168.1.23
+5c:cf:7f:8a:8e:02,C24,Controller C24,192.168.1.24
+ec:fa:bc:63:12:c9,C25,Controller C25,192.168.1.25
+84:f3:eb:53:59:39,C26,Controller C26,192.168.1.26
+dc:4f:22:7e:38:dd,C99,Controller C99 - Test controller,192.168.1.99

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Tag Linker</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Armata"
+      rel="stylesheet"
+    />
+    <!-- Script containing the basic scripts-->
+    <!-- Script handling pdf.js-->
+    <!-- <script src="renderPDF.js"></script> -->
+    <!-- Script handling the menus (shall be integrated in an UI scripts-->
+
+    <script src="pdf.js"></script>
+    <script src="pdf.worker.js"></script>
+  </head>
+  <body onload="init()">
+    <script type="text/javascript">
+      function init() {
+        // pdfFile = window.location.href.substring(
+        //   window.location.href.indexOf('=') + 1,
+        //   window.location.href.length
+        // );
+
+        // svg = 0;
+
+        // console.log('Initialize tags DB...');
+        // firebase.initializeApp(configTagDB);
+        // db = firebase.firestore();
+        // collection = 'tags';
+        // pdfFile = '../doc/TagLinker/doc/D-12048-5K1-N-0901.pdf';
+        // //pdfFile = '../doc/TagLinker/doc/' + pdfFile;
+        // console.log('Call PDF renderer...');
+
+        // svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+        pdfFile = 'Layout2.pdf';
+
+        pdfjsLib.getDocument(pdfFile).then(function(pdf) {
+          // Get div#container and cache it for later use
+          var container = document.getElementById('container');
+
+          // Loop from 1 to total_number_of_pages in PDF document
+          for (var i = 1; i <= pdf.numPages; i++) {
+            // Get desired page
+            pdf.getPage(i).then(function(page) {
+              var scale = 2;
+              var viewport = page.getViewport(scale);
+              var div = document.createElement('div');
+
+              // Set id attribute with page-#{pdf_page_number} format
+              div.setAttribute('id', 'page-' + (page.pageIndex + 1));
+
+              // This will keep positions of child elements as per our needs
+              div.setAttribute('style', 'position: relative');
+              div.style.width = viewport.width + 'px';
+
+              // Append div within div#container
+              container.appendChild(div);
+
+              // Create a new Canvas element
+              canvas = document.createElement('canvas');
+              canvas.setAttribute('class', 'canvas');
+
+              // Append Canvas within div#page-#{pdf_page_number}
+              context = canvas.getContext('2d');
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+              // canvas.style.position = 'absolute';
+              div.appendChild(canvas);
+
+              var renderContext = {
+                canvasContext: context,
+                viewport: viewport
+              };
+
+              // Render PDF page
+              page.render(renderContext);
+            });
+          }
+        });
+      }
+    </script>
+    <div id="container"></div>
+  </body>
+</html>
